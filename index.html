@@ -62,7 +62,7 @@
         </footer>
     </div>
 
-    <audio id="memorialAudio" loop>
+    <audio id="memorialAudio" loop autoplay>
         <source src="https://cdn.imgurl.ir/uploads/j275886_3044_Audio.mp3" type="audio/mpeg">
     </audio>
 
@@ -77,9 +77,10 @@
                     document.getElementById('loader').style.display = 'none';
                     document.getElementById('mainContent').style.display = 'block';
                     
-                    // پخش خودکار
-                    audio.play().catch(err => {
-                        console.log("Autoplay blocked. User must interact.");
+                    // تلاش برای پخش خودکار
+                    audio.play().catch(() => {
+                        // اگر بلاک شد، با اولین تعامل کاربر پخش می‌شود
+                        document.addEventListener('click', () => audio.play(), { once: true });
                     });
                     
                     // انیمیشن کارت‌ها
