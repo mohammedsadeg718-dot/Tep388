@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جاویدنامان | شهدای تیپ ۳۸۸</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap');
+        
+        body { margin:0; font-family: 'Vazirmatn', sans-serif; background:#0a0a0a; color:#e0e0e0; overflow-x:hidden; }
+        
+        /* لودینگ */
+        #loader {
+            position: fixed; top:0; left:0; width:100%; height:100%;
+            background:#0a0a0a; display:flex; flex-direction:column;
+            align-items:center; justify-content:center; z-index:9999;
+            transition: opacity 1.2s ease;
+        }
+        .candle { font-size:4.5em; animation:flame 1.8s infinite alternate; margin-bottom:20px; }
+        @keyframes flame { 0%{transform:scale(1) rotate(-8deg);} 100%{transform:scale(1.15) rotate(8deg);} }
+        
+        header {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url('https://picsum.photos/id/1015/1920/700') center/cover;
+            height:480px; display:flex; align-items:center; justify-content:center; text-align:center;
+        }
+        h1 { font-size:3.4em; color:#ffdddd; text-shadow:0 0 25px #800; margin:0; }
+        .subtitle { font-size:1.6em; color:#ffaaaa; margin-top:15px; }
+        
+        .main { max-width:1200px; margin:50px auto; padding:0 20px; }
+        .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(310px,1fr)); gap:25px; }
+        .card {
+            background:#141414; border-radius:16px; padding:30px 20px; text-align:center;
+            border:1px solid #550000; transition:0.4s;
+        }
+        .card:hover { transform:translateY(-12px); box-shadow:0 25px 40px rgba(139,0,0,0.6); }
+        .card h3 { color:#ffeeee; font-size:1.6em; margin:0 0 10px; }
+        .rank { color:#ff7777; }
+        
+        footer {
+            text-align:center; padding:60px 20px; background:#050505; color:#777; position:relative;
+        }
+        .footer-candle {
+            font-size:2.8em; animation:flame 2s infinite alternate; margin-bottom:10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- لودینگ -->
+    <div id="loader">
+        <div class="candle">🕯️</div>
+        <h2 style="color:#ffaaaa;">در حال ورود به حریم شهدا...</h2>
+    </div>
+
+    <!-- محتوا -->
+    <div class="main-content" id="mainContent" style="display:none;">
+        <header>
+            <div>
+                <h1>جاویدنامان</h1>
+                <p class="subtitle">شهدای تیپ ۳۸۸ پیاده مکانیزه ایرانشهر</p>
+            </div>
+        </header>
+
+        <div class="main">
+            <div class="grid">
+                <div class="card"><h3>شهید استواردوم فرشاد علوی</h3><div class="rank">پایور • تیپ ۳۸۸</div></div>
+                <div class="card"><h3>شهید استواردوم رضا شفیعی</h3><div class="rank">پایور • تیپ ۳۸۸</div></div>
+                <div class="card"><h3>شهید وظیفه علی‌رضا قاسمی</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
+                <div class="card"><h3>شهید وظیفه حسین جعفری</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
+                <div class="card"><h3>شهید وظیفه عباس حسن‌شاهی</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
+                <div class="card"><h3>شهید وظیفه عباس حسام‌الدینی</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
+                <div class="card"><h3>شهید وظیفه ابوالفضل ملایی</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-candle">🕯️</div>
+            <p>«آن‌ها رفتند تا ما بمانیم»</p>
+            <p>روحشان با شهدای کربلا محشور • تیر ۱۴۰۵</p>
+            <p style="margin-top:15px; font-size:0.95em;">ساخته شده توسط محمد صادق کرمی</p>
+        </footer>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                }, 1200);
+            }, 1600);
+        };
+    </script>
+</body>
+</html>
