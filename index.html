@@ -12,65 +12,52 @@
             background: #050505; color: #e8e8e8; 
         }
         
-        /* لودینگ خفن */
+        /* لودینگ */
         #loader { 
             position:fixed; top:0; left:0; width:100%; height:100%; 
-            background: linear-gradient(#0a0a0a, #1a0000); 
-            display:flex; flex-direction:column; align-items:center; 
-            justify-content:center; z-index:9999; transition:opacity 2s; 
+            background:#050505; display:flex; flex-direction:column; 
+            align-items:center; justify-content:center; z-index:9999; 
+            transition:opacity 1.8s; 
         }
-        .candle { font-size:6.5em; animation:flame 1.3s infinite alternate; margin-bottom:30px; }
-        @keyframes flame { 0%{transform:scale(1) rotate(-15deg);} 100%{transform:scale(1.35) rotate(15deg);} }
+        .candle { font-size:6.2em; animation:flame 1.4s infinite alternate; margin-bottom:25px; }
+        @keyframes flame { 0%{transform:scale(1) rotate(-12deg);} 100%{transform:scale(1.3) rotate(12deg);} }
         
-        /* هدر سینمایی */
         header { 
-            height:620px; 
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(20,0,0,0.95)), 
-                        url('https://picsum.photos/id/1015/1920/1080') center/cover fixed; 
+            height:580px; 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)), 
+                        url('https://picsum.photos/id/1015/1920/900') center/cover; 
             display:flex; align-items:center; justify-content:center; text-align:center; 
-            position:relative; 
         }
         .hero-text h1 { 
-            font-size:4.1em; color:#ffdddd; 
-            text-shadow:0 0 50px #800, 0 0 80px #ff0000; 
-            animation:glow 5s infinite alternate; 
+            font-size:4em; color:#ffdddd; 
+            text-shadow:0 0 45px #800; 
         }
-        @keyframes glow { from { text-shadow:0 0 30px #800; } to { text-shadow:0 0 70px #ff2222; } }
-        .subtitle { font-size:1.85em; color:#ffaaaa; margin-top:15px; letter-spacing:2px; }
+        .subtitle { font-size:1.8em; color:#ffaaaa; margin-top:12px; }
         
-        .main { max-width:1300px; margin:80px auto; padding:0 20px; }
-        .section { margin-bottom:90px; }
+        .main { max-width:1300px; margin:70px auto; padding:0 20px; }
+        .section { margin-bottom:85px; }
         .section-title { 
-            text-align:center; font-size:2.4em; color:#ffdddd; 
-            margin-bottom:50px; position:relative; 
+            text-align:center; font-size:2.35em; color:#ffdddd; 
+            margin-bottom:45px; 
         }
-        .section-title::after { 
-            content:''; width:140px; height:5px; background:linear-gradient(#800, #ff0000); 
-            display:block; margin:20px auto; border-radius:3px; 
-        }
-        
         .grid { 
             display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); 
             gap:32px; 
         }
         .card { 
-            background: linear-gradient(#111, #0a0a0a); border-radius:22px; 
-            padding:38px 25px; text-align:center; border:1px solid #660000; 
-            transition:0.7s cubic-bezier(0.4,0,0.2,1); 
-            opacity:0; transform:translateY(60px); 
+            background:#0f0f0f; border-radius:20px; padding:35px 25px; 
+            text-align:center; border:1px solid #550000; transition:0.5s; 
+            opacity:0; transform:translateY(50px); 
         }
         .card.visible { opacity:1; transform:translateY(0); }
-        .card:hover { 
-            transform:translateY(-25px) scale(1.06); 
-            box-shadow:0 35px 80px rgba(139,0,0,0.8); 
-        }
-        .card h3 { color:#ffeeee; margin:0 0 14px; font-size:1.75em; }
-        .rank { color:#ff6666; font-size:1.1em; }
+        .card:hover { transform:scale(1.05); box-shadow:0 25px 60px rgba(139,0,0,0.6); }
+        .card h3 { color:#ffeeee; margin:0 0 12px; font-size:1.7em; }
+        .rank { color:#ff7777; }
         
         footer { 
-            text-align:center; padding:90px 20px; background:#000; color:#666; 
+            text-align:center; padding:70px 20px; background:#000; color:#666; 
         }
-        .footer-candle { font-size:3.8em; animation:flame 2s infinite alternate; margin-bottom:25px; }
+        .footer-candle { font-size:3.4em; animation:flame 2s infinite alternate; margin-bottom:20px; }
     </style>
 </head>
 <body>
@@ -88,7 +75,7 @@
         </header>
 
         <div class="main">
-            <!-- پخش آهنگ خودکار -->
+            <!-- پخش آهنگ -->
             <audio id="memorialAudio" loop autoplay>
                 <source src="https://cdn.imgurl.ir/uploads/j275886_3044_Audio.mp3" type="audio/mpeg">
             </audio>
@@ -107,7 +94,7 @@
                 </div>
             </div>
 
-            <!-- شهدای جنوب - نیروی دریایی -->
+            <!-- شهدای نیروی دریایی بندرعباس -->
             <div class="section">
                 <div class="section-title">شهدای نیروی دریایی بندرعباس</div>
                 <div class="grid">
@@ -117,8 +104,8 @@
                     <div class="card"><h3>شهید استواردوم امیرحسین قاسمی</h3><div class="rank">پایگاه شهید عبدالکریمی بندرعباس</div></div>
                     <div class="card"><h3>شهید استواردوم علیرضا زارعی ثانی</h3><div class="rank">پایگاه شهید عبدالکریمی بندرعباس</div></div>
                     <div class="card"><h3>شهید استواردوم علیرضا بالیده</h3><div class="rank">پایگاه شهید عبدالکریمی بندرعباس</div></div>
-                    <div class="card"><h3>شهید ناواستواردوم شهاب امیدی بزی</h3><div class="rank">منطقه یکم نیروی دریایی بندرعباس</div></div>
-                    <div class="card"><h3>شهید ناوی محمدجواد روانفر</h3><div class="rank">منطقه یکم نیروی دریایی بندرعباس</div></div>
+                    <div class="card"><h3>شهید ناواستواردوم شهاب امیدی بزی</h3><div class="rank">منطقه یکم نیروی دریایی</div></div>
+                    <div class="card"><h3>شهید ناوی محمدجواد روانفر</h3><div class="rank">منطقه یکم نیروی دریایی</div></div>
                 </div>
             </div>
         </div>
@@ -127,7 +114,8 @@
             <div class="footer-candle">🕯️</div>
             <p>«آن‌ها رفتند تا ما بمانیم»</p>
             <p>روحشان با شهدای کربلا محشور • تیر ۱۴۰۵</p>
-            <p style="margin-top:25px; font-size:1.1em;">ساخته شده توسط Tachim
+            <p style="margin-top:25px; font-size:1.1em;">ساخته شده توسط tachim</p>
+        </footer>
     </div>
 
     <script>
@@ -143,15 +131,16 @@
                     
                     // پخش خودکار
                     audio.play().catch(() => {
+                        // اگر بلاک شد با اولین تعامل کاربر پخش می‌شود
                         document.addEventListener('click', () => audio.play(), { once: true });
                     });
                     
-                    // انیمیشن خفن کارت‌ها
+                    // انیمیشن کارت‌ها
                     document.querySelectorAll('.card').forEach((card, i) => {
-                        setTimeout(() => card.classList.add('visible'), 300 + i * 80);
+                        setTimeout(() => card.classList.add('visible'), 300 + i * 100);
                     });
-                }, 1600);
-            }, 1800);
+                }, 1500);
+            }, 1700);
         };
     </script>
 </body>
