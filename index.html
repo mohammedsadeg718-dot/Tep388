@@ -3,29 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جاویدنامان | شهدای تیپ ۳۸۸</title>
+    <title>جاویدنامان | شهدای جنوب و تیپ ۳۸۸</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap');
         
         body { margin:0; font-family: 'Vazirmatn', sans-serif; background:#0a0a0a; color:#e0e0e0; }
         
         #loader { position:fixed; top:0; left:0; width:100%; height:100%; background:#0a0a0a; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:9999; transition:opacity 1.5s; }
-        .candle { font-size:5em; animation:flame 1.6s infinite alternate; margin-bottom:20px; }
-        @keyframes flame { 0%{transform:scale(1) rotate(-10deg);} 100%{transform:scale(1.2) rotate(10deg);} }
+        .candle { font-size:5.5em; animation:flame 1.5s infinite alternate; margin-bottom:20px; }
+        @keyframes flame { 0%{transform:scale(1) rotate(-12deg);} 100%{transform:scale(1.25) rotate(12deg);} }
         
-        header { height:520px; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('https://picsum.photos/id/1015/1920/800') center/cover; display:flex; align-items:center; justify-content:center; text-align:center; }
-        h1 { font-size:3.5em; color:#ffdddd; text-shadow:0 0 30px #800; }
-        .subtitle { font-size:1.65em; color:#ffaaaa; }
+        header { 
+            height:580px; 
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)), url('https://picsum.photos/id/1015/1920/900') center/cover; 
+            display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
+        }
+        .hero-text h1 { font-size:3.8em; color:#ffdddd; text-shadow:0 0 35px #800; animation:glow 4s infinite alternate; }
+        @keyframes glow { from { text-shadow:0 0 20px #800; } to { text-shadow:0 0 45px #ff0000; } }
         
-        .main { max-width:1200px; margin:60px auto; padding:0 20px; }
+        .main { max-width:1250px; margin:60px auto; padding:0 20px; }
+        .section { margin-bottom:70px; }
+        .section-title { text-align:center; font-size:2.2em; color:#ffdddd; margin-bottom:40px; position:relative; }
+        .section-title::after { content:''; width:100px; height:4px; background:#800; display:block; margin:15px auto; }
+        
         .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:28px; }
-        .card { background:#111; border-radius:18px; padding:32px 20px; text-align:center; border:1px solid #440000; transition:0.5s; opacity:0; transform:translateY(40px); }
+        .card { 
+            background:#111; border-radius:18px; padding:32px 20px; text-align:center; 
+            border:1px solid #440000; transition:0.5s; opacity:0; transform:translateY(40px); 
+        }
         .card.visible { opacity:1; transform:translateY(0); }
-        .card:hover { transform:translateY(-15px) scale(1.03); box-shadow:0 25px 50px rgba(139,0,0,0.5); }
+        .card:hover { transform:translateY(-18px) scale(1.04); box-shadow:0 30px 60px rgba(139,0,0,0.6); }
         .card h3 { color:#ffeeee; margin:0 0 12px; font-size:1.65em; }
         
-        footer { text-align:center; padding:60px 20px; background:#050505; color:#777; }
-        .footer-candle { font-size:3em; animation:flame 2.2s infinite alternate; margin-bottom:15px; }
+        .music-player { text-align:center; margin:40px 0; padding:25px; background:#1a1a1a; border-radius:14px; }
+        
+        footer { text-align:center; padding:70px 20px; background:#050505; color:#777; }
+        .footer-candle { font-size:3.2em; animation:flame 2s infinite alternate; margin-bottom:15px; }
     </style>
 </head>
 <body>
@@ -36,21 +49,46 @@
 
     <div id="mainContent" style="display:none;">
         <header>
-            <div>
+            <div class="hero-text">
                 <h1>جاویدنامان</h1>
-                <p class="subtitle">شهدای تیپ ۳۸۸ ایرانشهر</p>
+                <p class="subtitle">شهدای تیپ ۳۸۸ و مدافعان جنوب</p>
             </div>
         </header>
 
         <div class="main">
-            <div class="grid" id="cards">
-                <div class="card"><h3>شهید استواردوم فرشاد علوی</h3><div class="rank">پایور • تیپ ۳۸۸</div></div>
-                <div class="card"><h3>شهید استواردوم رضا شفیعی</h3><div class="rank">پایور • تیپ ۳۸۸</div></div>
-                <div class="card"><h3>شهید وظیفه علی‌رضا قاسمی</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
-                <div class="card"><h3>شهید وظیفه حسین جعفری</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
-                <div class="card"><h3>شهید وظیفه عباس حسن‌شاهی</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
-                <div class="card"><h3>شهید وظیفه عباس حسام‌الدینی</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
-                <div class="card"><h3>شهید وظیفه ابوالفضل ملایی</h3><div class="rank">سرباز وظیفه • تیپ ۳۸۸</div></div>
+            <!-- پخش آهنگ -->
+            <div class="music-player">
+                <p>🎵 آهنگ یادمان شهدا</p>
+                <audio id="memorialAudio" loop>
+                    <source src="https://cdn.imgurl.ir/uploads/j275886_3044_Audio.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+
+            <!-- تیپ 388 -->
+            <div class="section">
+                <div class="section-title">شهدای تیپ ۳۸۸ ایرانشهر</div>
+                <div class="grid" id="cards388">
+                    <div class="card"><h3>شهید استواردوم فرشاد علوی</h3><div class="rank">پایور</div></div>
+                    <div class="card"><h3>شهید استواردوم رضا شفیعی</h3><div class="rank">پایور</div></div>
+                    <div class="card"><h3>شهید وظیفه علی‌رضا قاسمی</h3><div class="rank">سرباز وظیفه</div></div>
+                    <div class="card"><h3>شهید وظیفه حسین جعفری</h3><div class="rank">سرباز وظیفه</div></div>
+                    <div class="card"><h3>شهید وظیفه عباس حسن‌شاهی</h3><div class="rank">سرباز وظیفه</div></div>
+                    <div class="card"><h3>شهید وظیفه عباس حسام‌الدینی</h3><div class="rank">سرباز وظیفه</div></div>
+                    <div class="card"><h3>شهید وظیفه ابوالفضل ملایی</h3><div class="rank">سرباز وظیفه</div></div>
+                </div>
+            </div>
+
+            <!-- شهدای جنوب -->
+            <div class="section">
+                <div class="section-title">شهدای جنوب (نیروهای ارتش)</div>
+                <div class="grid">
+                    <div class="card"><h3>شهید سروان علی معینی</h3><div class="rank">پایگاه شهید یاسینی بوشهر</div></div>
+                    <div class="card"><h3>شهید ستوان یکم علی مهدی‌زاده</h3><div class="rank">نیروهای جنوب</div></div>
+                    <div class="card"><h3>شهید ستوان سوم حامد دورای</h3><div class="rank">نیروهای جنوب</div></div>
+                    <div class="card"><h3>شهید استواردوم امیرحسین قاسمی</h3><div class="rank">پایگاه بندرعباس</div></div>
+                    <div class="card"><h3>شهید استواردوم علیرضا زارعی ثانی</h3><div class="rank">پایگاه بندرعباس</div></div>
+                    <div class="card"><h3>شهید استواردوم علیرضا بالیده</h3><div class="rank">پایگاه بندرعباس</div></div>
+                </div>
             </div>
         </div>
 
@@ -58,13 +96,9 @@
             <div class="footer-candle">🕯️</div>
             <p>«آن‌ها رفتند تا ما بمانیم»</p>
             <p>روحشان با شهدای کربلا محشور • تیر ۱۴۰۵</p>
-            <p style="margin-top:20px;">ساخته شده توسط  tachim</p>
+            <p style="margin-top:20px;">ساخته شده توسط محمد صادق</p>
         </footer>
     </div>
-
-    <audio id="memorialAudio" loop autoplay>
-        <source src="https://cdn.imgurl.ir/uploads/j275886_3044_Audio.mp3" type="audio/mpeg">
-    </audio>
 
     <script>
         const audio = document.getElementById('memorialAudio');
@@ -77,16 +111,11 @@
                     document.getElementById('loader').style.display = 'none';
                     document.getElementById('mainContent').style.display = 'block';
                     
-                    // تلاش برای پخش خودکار
-                    audio.play().catch(() => {
-                        // اگر بلاک شد، با اولین تعامل کاربر پخش می‌شود
-                        document.addEventListener('click', () => audio.play(), { once: true });
-                    });
+                    audio.play().catch(() => {});
                     
                     // انیمیشن کارت‌ها
-                    const cards = document.querySelectorAll('.card');
-                    cards.forEach((card, i) => {
-                        setTimeout(() => card.classList.add('visible'), 400 + i * 130);
+                    document.querySelectorAll('.card').forEach((card, i) => {
+                        setTimeout(() => card.classList.add('visible'), 300 + i * 100);
                     });
                 }, 1400);
             }, 1600);
